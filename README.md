@@ -41,7 +41,13 @@ C. You can also load a URL from an online validation service, such as [ilicop.ch
 
 <img src='screenshots/xtflogchecker_ilivalidator_errors.png' alt="Icon" width="90%">
 
-All Errors are displayed on the same layer. The latest version also supports the display of Errors without an assigned geometry. There have field/value filter function.
+All errors are displayed on the same layer, including errors that have no geometry. Entries without a coordinate stay in the list and can be checked off. The map only moves when the selected entry has a geometry.
+
+The list can be filtered by field and value. Available fields are Message, Tid, ObjTag, Model, Topic, Class, and DataSource. Model, Topic, and Class are taken from ObjTag (`Model.Topic.Class`). After a value is chosen, the first matching entry is selected. The number of listed items is shown above the list.
+
+Infos are hidden by default. Check **Show infos** to include them.
+
+Beginning with version 1.4.0, the ilivalidator panel also has **Select All** and **Clear All** buttons, and shows a tooltip when you hover over an entry, the same as the iG/Check panel.
 
 
 ### iG/Check
@@ -104,7 +110,17 @@ When hovering over an entry, a floating box appears displaying the corresponding
 Further details you get by opening the attribute table of the respective layer
 <img src='screenshots/xtflogchecker_attribute_table.png' alt="Icon" width="90%">
 
+## Faster log loading
+
+Beginning with version 1.4.0, creating the error layer from a large log is much faster.
+
+* All entries are written into the layer in one step. The layer is added to the project only after it is filled, so the map is not redrawn for every error.
+* A coordinate outside the LV95 area is left off the map and reported once, together with the others. The error still appears in the list, without a position.
+* The same loading is used for ilivalidator and iG/Check logs.
+
+On an ilivalidator log of about 11,500 entries, creating the layer went from about 10 seconds to about half a second.
+
 ## License
 The XTFLog-Checker plugin is licensed under the [GPL-3.0 license](LICENSE).  
-Copyright © 2025
+Copyright © 2026
 [GeoWerkstatt GmbH](https://www.geowerkstatt.ch) & [Stefan Jürg Burckhardt, Software, Informationsmanagement, Beratung (SJiB)](https://www.sjib.ch/)

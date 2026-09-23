@@ -146,5 +146,5 @@ cython_debug/
 #claude file
 .claude/
 
-# Cursor 本机规则（不上传）
+# Cursor local rules (not uploaded)
 .cursor/
